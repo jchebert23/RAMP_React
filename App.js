@@ -1,18 +1,18 @@
 import React from 'react';
 import MySVGs from './icons';
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, useWindowDimensions, Dimensions } from 'react-native';
+
+const numColumns = 2
+const windowWidth = Dimensions.get('window').width
+const tilePadding = 10
+const tileWidth = (windowWidth-(numColumns*2*tilePadding))/numColumns
+
+
 
 function Item({ item }) {
   return (
     <View style={styles.listItem}>
-      <item.icon width={60} height={60} />
-      <View style={{alignItems:"center",flex:1}}>
-        <Text style={{fontWeight:"bold"}}>{item.name}</Text>
-        <Text>{item.position}</Text>
-      </View>
-      <TouchableOpacity style={{height:50,width:50, justifyContent:"center",alignItems:"center"}}>
-        <Text style={{color:"green"}}>Call</Text>
-      </TouchableOpacity>
+      <item.icon width="100%" height="100%"/>
     </View>
   );
 }
@@ -21,22 +21,28 @@ export default class App extends React.Component {
   state = {
     data:[
         {
-            "name": "Miyah Myles",
-            "email": "miyah.myles@gmail.com",
-            "position": "Data Entry Clerk",
-            "icon": MySVGs.Community
+            "icon": MySVGs.Community,
+            "id": "community"
         },
         {
-            "name": "June Cha",
-            "email": "june.cha@gmail.com",
-            "position": "Sales Manager",
-            "icon": MySVGs.Health
+            "icon": MySVGs.Health,
+            "id": "health"
         },
         {
-            "name": "Iida Niskanen",
-            "email": "iida.niskanen@gmail.com",
-            "position": "Sales Manager",
-            "icon": MySVGs.Food
+            "icon": MySVGs.Food,
+            "id": "food"
+        },
+        {
+          "icon": MySVGs.Employment,
+          "id": "employment"
+        },
+        {
+          "icon": MySVGs.Education,
+          "id": "education"
+        },
+        {
+          "icon": MySVGs.Housing,
+          "id": "housing"
         }
     ]
   }
@@ -48,8 +54,9 @@ export default class App extends React.Component {
         <FlatList
           style={{flex:1}}
           data={this.state.data}
+          numColumns={numColumns}
           renderItem={({ item }) => <Item item={item}/>}
-          keyExtractor={item => item.email}
+          keyExtractor={item => item.id}
         />
       </View>
     );
@@ -60,16 +67,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F7F7F7',
-    marginTop:60
+    marginTop:60,
+    flexDirection:"column"
   },
   listItem:{
     margin:10,
-    padding:10,
+    padding:tilePadding,
     backgroundColor:"#FFF",
-    width:"80%",
-    flex:1,
-    alignSelf:"center",
-    flexDirection:"row",
-    borderRadius:5
+    flexDirection:"column",
+    width:tileWidth,
+    height:tileWidth
   }
 });
