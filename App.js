@@ -12,7 +12,7 @@ const tileWidth = (windowWidth-(numColumns*2*tilePadding))/numColumns
 function Item({ item }) {
   return (
     <View style={styles.listItem}>
-      <item.icon width="100%" height="100%"/>
+      <item.icon width="80%" height="80%"/>
     </View>
   );
 }
@@ -76,6 +76,9 @@ const styles = StyleSheet.create({
     backgroundColor:"#FFF",
     flexDirection:"column",
     width:tileWidth,
-    height:tileWidth
+    height:tileWidth,
+    borderRadius: tileWidth/2,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
