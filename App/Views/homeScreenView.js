@@ -14,7 +14,7 @@ function Item({ item }) {
     );
 }
 
-export default function HomeScreen() {
+export default function HomeView() {
     const resourceGroups = getResourceGroups()
 
     return (
