@@ -1,5 +1,8 @@
+import React from 'react';
+import { Text, View } from 'react-native';
 
-
-export default function MapScreen(){
-    return (<View />);
+export default function MapView(){
+    return (<View>
+        <Text> Map Screen </Text>
+     </View>   );
 }
