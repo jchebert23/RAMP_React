@@ -1,5 +1,6 @@
 import * as React from 'react';
 import MapView from 'react-native-maps';
+import { Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, FlatList, Image, TouchableOpacity } from 'react-native';
 import healthLocations from '../Models/Data/healthLocations';
 
@@ -22,7 +23,24 @@ export default function MapScreen() {
   
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} />
+      <MapView 
+      style={styles.map}
+      initialRegion={{
+        latitude: 41.3083,
+        longitude: -72.9279,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      }}
+      >
+      {healthLocations.map((location, index) => (
+     <Marker
+        key={index}
+        coordinate={location.location}
+        title={location.name}
+        description={"Default Text"}
+      />
+      ))}
+      </MapView>
       <FlatList
           style={{flex:1,paddingVertical:20}}
           data={healthLocations}
