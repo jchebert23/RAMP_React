@@ -2,7 +2,7 @@ import * as React from 'react';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, FlatList, Image, TouchableOpacity } from 'react-native';
-import healthLocations from '../Models/Data/healthLocations';
+import { getHealthLocations } from '../Controllers/mapScreenController';
 
 function Item({ item }) {
     return (
@@ -20,7 +20,7 @@ function Item({ item }) {
   }
 
 export default function MapScreen() {
-  
+  const healthLocations = getHealthLocations()
   return (
     <View style={styles.container}>
       <MapView 
