@@ -11,7 +11,7 @@ function NavigationTool() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeView} options={{title: 'Resource Access Mapping Project'}} />
-        <Stack.Screen name="Map" component={MapScreen} options={{title: 'Map'}} />
+        <Stack.Screen name="Map" component={MapScreen} options={{title: 'Health Resources'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
