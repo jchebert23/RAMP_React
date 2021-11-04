@@ -1,9 +1,9 @@
 import React from 'react';
-import HomeScreen from "./App/Views/homeScreenView"
+import NavigationTool from './App/Navigation/stack'
 
 export default class App extends React.Component {
   render(){
-    return <HomeScreen />;
+    return (<NavigationTool />);
   }
 }
 
