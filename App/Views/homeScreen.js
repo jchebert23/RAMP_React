@@ -16,7 +16,7 @@ function Item({ item, navigation }) {
     );
 }
 
-export default function HomeView({navigation}) {
+export default function HomeScreen({navigation}) {
     const resourceGroups = getResourceGroups()
 
     return (
