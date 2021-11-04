@@ -1,5 +1,5 @@
 import HomeView  from "../Views/homeScreenView"
-import MapView from "../Views/mapView"
+import MapScreen from "../Views/mapView"
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,7 +11,7 @@ function NavigationTool() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeView} options={{title: 'Resource Access Mapping Project'}} />
-        <Stack.Screen name="Map" component={MapView} options={{title: 'Map'}} />
+        <Stack.Screen name="Map" component={MapScreen} options={{title: 'Map'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
