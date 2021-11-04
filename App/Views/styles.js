@@ -11,7 +11,7 @@ export function getHomeScreenStyles(numColumns){
         container: {
         flex: 1,
         backgroundColor: '#F7F7F7',
-        marginTop:60,
+        marginTop:0,
         flexDirection:"column"
         },
 
@@ -33,4 +33,28 @@ export function getHomeScreenStyles(numColumns){
         elevation: 5
         }
     });
+}
+
+export function getMapScreenStyles(){
+    return StyleSheet.create({
+        container: {
+          flex: 1,
+          backgroundColor: '#F7F7F7',
+          flexDirection: 'column'
+        },
+        map: {
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height/2.33,
+        },
+        listItem:{
+          margin:10,
+          padding:10,
+          backgroundColor:"#FFF",
+          width:"80%",
+          flex:1,
+          alignSelf:"center",
+          flexDirection:"row",
+          borderRadius:5
+        }
+      });
 }

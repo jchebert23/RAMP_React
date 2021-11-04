@@ -22,7 +22,7 @@ export default function HomeView({navigation}) {
     return (
         <View style={styles.container}>
         <FlatList
-            style={{flex:1}}
+            style={{flex:1,marginTop:40}}
             data={resourceGroups}
             numColumns={numColumns}
             renderItem={({ item }) => <Item item={item} navigation={navigation}/>}

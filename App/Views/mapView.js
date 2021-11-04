@@ -3,6 +3,9 @@ import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, FlatList, Image, TouchableOpacity } from 'react-native';
 import { getHealthLocations } from '../Controllers/mapScreenController';
+import {getMapScreenStyles} from "./styles.js"
+
+const styles = getMapScreenStyles()
 
 function Item({ item }) {
     return (
@@ -51,24 +54,3 @@ export default function MapScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F7F7F7',
-    flexDirection: 'column'
-  },
-  map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height/2.33,
-  },
-  listItem:{
-    margin:10,
-    padding:10,
-    backgroundColor:"#FFF",
-    width:"80%",
-    flex:1,
-    alignSelf:"center",
-    flexDirection:"row",
-    borderRadius:5
-  }
-});
