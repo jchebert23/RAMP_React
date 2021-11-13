@@ -10,7 +10,7 @@ const styles = getHomeScreenStyles(2)
 
 function Item({ item, navigation }) {
     return (
-      <TouchableOpacity style={styles.listItem} onPress={()=> navigation.navigate('Map')} >
+      <TouchableOpacity style={styles.listItem} onPress={()=> navigation.navigate('Guide',{resource: item})} >
         <item.icon width="78%" height="78%"/>
       </TouchableOpacity>
     );

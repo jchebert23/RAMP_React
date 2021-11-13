@@ -2,7 +2,7 @@ import MySVGs from '../../../assets/icons';
 
 export default resourceGroups = [
         {
-            "icon": MySVGs.Community,
+            "icon": MySVGs.Transportation,
             "id": "community"
         },
         {

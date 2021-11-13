@@ -3,7 +3,7 @@ import Health from './ramp_icons/MainNavIcons/health.svg'
 import Food from './ramp_icons/MainNavIcons/food.svg'
 import Housing from './ramp_icons/MainNavIcons/housing.svg'
 import Employment from './ramp_icons/MainNavIcons/employment.svg'
-import Community from './ramp_icons/MainNavIcons/community.svg'
+import Transportation from './ramp_icons/MainNavIcons/transportation_1.svg'
 
 const MySVGs = {
     Education,
@@ -11,7 +11,7 @@ const MySVGs = {
     Food,
     Housing,
     Employment,
-    Community
+    Transportation
 };
 
 export default MySVGs;

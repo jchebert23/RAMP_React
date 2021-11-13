@@ -58,3 +58,31 @@ export function getMapScreenStyles(){
         }
       });
 }
+
+export function getGuideScreenStyles(){
+  const topIconWidth = Dimensions.get('window').width/5
+  return StyleSheet.create({
+      container: {
+        flex: 1,
+        backgroundColor: '#F7F7F7',
+        flexDirection: 'column'
+      },
+      iconAtTopOfScreen:{
+        margin:10,
+        padding:10,
+        backgroundColor:"#FFF",
+        flexDirection:"column",
+        width:topIconWidth,
+        height:topIconWidth,
+        borderRadius: topIconWidth/2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        //shadow
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: .3,
+        shadowRadius: 5,  
+        elevation: 5
+      }
+  })
+}
