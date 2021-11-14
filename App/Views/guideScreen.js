@@ -1,19 +1,18 @@
 import React from 'react';
 import { Text, View, FlatList, Image, TouchableOpacity, useWindowDimensions, Dimensions } from 'react-native';
 import {getGuideScreenStyles} from "./styles.js"
-import { Header } from "../Navigation/stack.js"
+import { NavigationHeader } from "./common.js"
+import { getResourceIcon } from '../Controllers/commonController.js';
 
 const styles = getGuideScreenStyles()
 
 export default function guideScreen({route, navigation}) {
 
     const resource = route.params.resource
-    navigation.setOptions({header: (route) => <Header HeaderIcon={resource.icon}/>})
+    navigation.setOptions({header: () => <NavigationHeader HeaderIcon={getResourceIcon(resource.routeID)}/>})
     return (
         <View style={styles.container}>
-            <View style={styles.iconAtTopOfScreen}>
-                <resource.icon width="78%" height="78%"/>
-            </View>
+            <Text> Hello World</Text>
         </View> 
     );
 }

@@ -90,7 +90,7 @@ export function getNavigationStyles(){
   return StyleSheet.create({
       headerContainer: {
         paddingTop: 40,
-        backgroundColor: 'blue',
+        backgroundColor: '#F7F7F7',
         alignItems: 'center',
         justifyContent: 'center',
         height: 120

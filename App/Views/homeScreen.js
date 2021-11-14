@@ -4,14 +4,16 @@ import {getResourceGroups}  from "../Controllers/homeScreenController.js"
 import {getHomeScreenStyles} from "./styles.js"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { getResourceIcon } from '../Controllers/commonController.js';
 
 const numColumns = 2
 const styles = getHomeScreenStyles(2)
 
-function Item({ item, navigation }) {
+function Item({ item, navigation}) {
+    const ResourceIcon = getResourceIcon(item.routeID)
     return (
       <TouchableOpacity style={styles.listItem} onPress={()=> navigation.navigate('Guide',{resource: item})} >
-        <item.icon width="78%" height="78%"/>
+        <ResourceIcon width="78%" height="78%"/>
       </TouchableOpacity>
     );
 }
