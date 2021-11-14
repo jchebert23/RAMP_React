@@ -88,18 +88,17 @@ export function getGuideScreenStyles(){
 }
 
 export function getNavigationStyles(){
-  const topIconWidth = Dimensions.get('window').width/5
+  const topIconWidth = Dimensions.get('window').width/5.75
   return StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: '#F7F7F7',
-        flexDirection: 'column'
+      headerContainer: {
+        paddingTop: 40,
+        backgroundColor: 'blue',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 120
       },
       iconAtTopOfScreen:{
-        margin:10,
-        padding:10,
         backgroundColor:"#FFF",
-        flexDirection:"column",
         width:topIconWidth,
         height:topIconWidth,
         borderRadius: topIconWidth/2,
@@ -111,6 +110,6 @@ export function getNavigationStyles(){
         shadowOpacity: .3,
         shadowRadius: 5,  
         elevation: 5
-      }
+      },
   })
 }
