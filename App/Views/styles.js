@@ -68,8 +68,6 @@ export function getGuideScreenStyles(){
         flexDirection: 'column'
       },
       iconAtTopOfScreen:{
-        margin:10,
-        padding:10,
         backgroundColor:"#FFF",
         flexDirection:"column",
         width:topIconWidth,
