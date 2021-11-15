@@ -3,8 +3,8 @@ import { Dimensions, StyleSheet } from "react-native";
 
 export function getHomeScreenStyles(numColumns){
     const windowWidth = Dimensions.get('window').width
-    const tilePadding = 10
-    const tileWidth = (windowWidth-(numColumns*2*tilePadding))/numColumns
+    const margin = 10
+    const tileWidth = (windowWidth-(numColumns*2*margin))/numColumns
 
 
     return StyleSheet.create({
@@ -16,8 +16,7 @@ export function getHomeScreenStyles(numColumns){
         },
 
         listItem:{
-        margin:10,
-        padding:tilePadding,
+        margin:margin,
         backgroundColor:"#FFF",
         flexDirection:"column",
         width:tileWidth,
