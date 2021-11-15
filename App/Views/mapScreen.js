@@ -1,7 +1,7 @@
 import * as React from 'react';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, FlatList, Image, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { getHealthLocations } from '../Controllers/mapScreenController';
 import {getMapScreenStyles} from "./styles.js"
 

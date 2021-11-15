@@ -2,11 +2,10 @@ import HomeScreen  from "../Views/homeScreen"
 import MapScreen from "../Views/mapScreen"
 import GuideScreen from "../Views/guideScreen";
 import React from 'react';
-import { Text, View, FlatList, Image, TouchableOpacity, useWindowDimensions, Dimensions } from 'react-native';
+import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { getNavigationStyles } from "../Views/styles";
-import { NavBarHeader } from "../Views/navBarHeader";
 import { getResourceIcon } from "../Controllers/commonController";
 
 const Stack = createStackNavigator();
@@ -27,7 +26,7 @@ function NavigationTool() {
               }
               else
               {
-                const ResourceIcon = getResourceIcon(route.params.resource.routeID)
+                const ResourceIcon = getResourceIcon(route.params.resource.id)
                 return (
                   <View style={styles.headerContainer}>
                     <View style={styles.iconAtTopOfScreen}>

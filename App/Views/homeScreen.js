@@ -1,16 +1,14 @@
 import React from 'react';
-import { Text, View, FlatList, Image, TouchableOpacity, useWindowDimensions, Dimensions } from 'react-native';
+import { View, FlatList, TouchableOpacity} from 'react-native';
 import {getResourceGroups}  from "../Controllers/homeScreenController.js"
 import {getHomeScreenStyles} from "./styles.js"
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getResourceIcon } from '../Controllers/commonController.js';
 
 const numColumns = 2
 const styles = getHomeScreenStyles(2)
 
 function Item({ item, navigation}) {
-    const ResourceIcon = getResourceIcon(item.routeID)
+    const ResourceIcon = getResourceIcon(item.id)
     return (
       <TouchableOpacity style={styles.listItem} onPress={()=> navigation.navigate('Guide',{resource: item})} >
         <ResourceIcon width="78%" height="78%"/>
