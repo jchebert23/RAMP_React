@@ -92,10 +92,12 @@ export function getNavigationStyles(){
         paddingTop: 40,
         backgroundColor: '#F7F7F7',
         alignItems: 'center',
-        justifyContent: 'center',
-        height: 120
+        justifyContent: 'flex-start',
+        height: 120,
+        flexDirection: "row",
       },
-      iconAtTopOfScreen:{
+      headerCenterContainer:{
+        flex:1,
         backgroundColor:"#FFF",
         width:topIconWidth,
         height:topIconWidth,
@@ -109,5 +111,17 @@ export function getNavigationStyles(){
         shadowRadius: 5,  
         elevation: 5
       },
+      headerLeftContainer:{
+        flex:1,
+      },
+      headerRightContainer:{
+        flex:1
+      },
+      backButton:{
+        paddingLeft: 10
+      },
+      centerIcon:{
+
+      }
   })
 }

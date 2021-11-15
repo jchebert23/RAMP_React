@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { getNavigationStyles } from "../Views/styles";
 import { getResourceIcon } from "../Controllers/commonController";
+import { HeaderBackButton } from "@react-navigation/elements";
 
 const Stack = createStackNavigator();
 const styles = getNavigationStyles()
@@ -41,10 +42,15 @@ function NavigationTool() {
 }
 
 function Header(props){
-  return(<View style={styles.headerContainer}>
-    <View style={styles.iconAtTopOfScreen}>
+  return(
+  <View style={styles.headerContainer}>
+    <View style={styles.headerLeftContainer}>
+      <HeaderBackButton style={styles.backButton}/>
+    </View>
+    <View style={styles.headerCenterContainer}>
         <props.Icon width="78%" height="78%"/>
     </View>
+    <View style={styles.headerRightContainer}/>
   </View>)
 }
 
