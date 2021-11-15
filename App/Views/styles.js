@@ -66,21 +66,6 @@ export function getGuideScreenStyles(){
         flex: 1,
         backgroundColor: '#F7F7F7',
         flexDirection: 'column'
-      },
-      iconAtTopOfScreen:{
-        backgroundColor:"#FFF",
-        flexDirection:"column",
-        width:topIconWidth,
-        height:topIconWidth,
-        borderRadius: topIconWidth/2,
-        alignItems: 'center',
-        justifyContent: 'center',
-        //shadow
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: .3,
-        shadowRadius: 5,  
-        elevation: 5
       }
   })
 }
@@ -98,6 +83,19 @@ export function getNavigationStyles(){
       },
       headerCenterContainer:{
         flex:1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      headerLeftContainer:{
+        flex:1,
+      },
+      headerRightContainer:{
+        flex:1
+      },
+      backButton:{
+        paddingLeft: 10
+      },
+      centerIcon:{
         backgroundColor:"#FFF",
         width:topIconWidth,
         height:topIconWidth,
@@ -110,18 +108,6 @@ export function getNavigationStyles(){
         shadowOpacity: .3,
         shadowRadius: 5,  
         elevation: 5
-      },
-      headerLeftContainer:{
-        flex:1,
-      },
-      headerRightContainer:{
-        flex:1
-      },
-      backButton:{
-        paddingLeft: 10
-      },
-      centerIcon:{
-
       }
   })
 }

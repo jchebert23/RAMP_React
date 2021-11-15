@@ -20,15 +20,15 @@ function NavigationTool() {
             headerStyle: {
               height: 150
             },
-            header: ({route}) =>{
+            header: ({route,navigation}) =>{
               if(route.name ==="Home")
               {
-                return(<Text> Hello World </Text>)
+                return(<Text> Resource Access Mapping Project </Text>)
               }
               else
               {
                 const ResourceIcon = getResourceIcon(route.params.resource.id)
-                return(<Header Icon={ResourceIcon}/>);
+                return(<Header Icon={ResourceIcon} nav={navigation}/>);
               }
             }
           }
@@ -45,10 +45,12 @@ function Header(props){
   return(
   <View style={styles.headerContainer}>
     <View style={styles.headerLeftContainer}>
-      <HeaderBackButton style={styles.backButton}/>
+      <HeaderBackButton style={styles.backButton} onPress={()=> props.nav.goBack()}/>
     </View>
     <View style={styles.headerCenterContainer}>
-        <props.Icon width="78%" height="78%"/>
+        <View style={styles.centerIcon}>
+          <props.Icon width="78%" height="78%"/>
+        </View>
     </View>
     <View style={styles.headerRightContainer}/>
   </View>)
