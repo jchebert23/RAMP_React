@@ -27,13 +27,7 @@ function NavigationTool() {
               else
               {
                 const ResourceIcon = getResourceIcon(route.params.resource.id)
-                return (
-                  <View style={styles.headerContainer}>
-                    <View style={styles.iconAtTopOfScreen}>
-                        <ResourceIcon width="78%" height="78%"/>
-                    </View>
-                  </View>
-                );
+                return(<Header Icon={ResourceIcon}/>);
               }
             }
           }
@@ -44,6 +38,14 @@ function NavigationTool() {
       </Stack.Navigator>
     </NavigationContainer>
   );
+}
+
+function Header(props){
+  return(<View style={styles.headerContainer}>
+    <View style={styles.iconAtTopOfScreen}>
+        <props.Icon width="78%" height="78%"/>
+    </View>
+  </View>)
 }
 
 export default NavigationTool;
