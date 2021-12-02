@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 
 export function getHomeScreenStyles(numColumns){
@@ -117,6 +118,17 @@ export function getGuideScreenStyles(){
       flex: 1,
       backgroundColor: '#F8F8F8',
     },
+    listItemQuestion:{
+      fontFamily: "Outfit",
+      width: "80%",
+      textAlign: "center",
+    }
+  });
+}
+
+export function getGuideScreenPromptContainerStyle(guideLevel){
+  const borderColor = getBorderColorByGuideLevel(guideLevel)
+  return StyleSheet.create({
     listItemContainer:{
       margin:10,
       padding:10,
@@ -124,12 +136,20 @@ export function getGuideScreenStyles(){
       width:"80%",
       flex:1,
       alignSelf:"center",
-      borderRadius:5
+      borderRadius:5,
+      borderWidth:3,
+      borderColor: borderColor
     },
-    listItemQuestion:{
-      fontFamily: "Outfit",
-      width: "80%",
-      textAlign: "center",
-    }
-  });
+  })
+}
+
+function getBorderColorByGuideLevel(guideLevel){
+  switch(guideLevel){
+      case 0:
+          return "black";
+      case 1:
+          return "gainsboro";
+      case 2:
+          return "ivory";
+  }
 }

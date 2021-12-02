@@ -27,7 +27,8 @@ export const foodGuides ={
             "groupId": "food"
         }
     ],
-    content: "null"
+    content: "null",
+    guideLevel: 0
 }
 
 
@@ -59,11 +60,12 @@ export const thirdFoodSubGuide = {
     prompts:
         [
             {
-                "prompt": "What is the Commondity Supplemental Food Program",
+                "prompt": "What is the Commondity Supplemental Food Program?",
                 "id": "4.3.1" 
             },
         ],
-    content: "Food pantries are centers that distribute packages of groceries  (i.e., fruits, vegetables, protein, dairy, grains) to eligible individuals and households in a specified area. A selected number of food pantries also deliver packages to those who are homebound."
+    content: "Food pantries are centers that distribute packages of groceries  (i.e., fruits, vegetables, protein, dairy, grains) to eligible individuals and households in a specified area. A selected number of food pantries also deliver packages to those who are homebound.",
+    guideLevel: 1
 }
 export const thirdFoodSubSubGuide = {
     prompts:[
@@ -72,5 +74,6 @@ export const thirdFoodSubSubGuide = {
             "id": "4.3.1.1"
         },
     ],
-    content: "The Commodity Supplemental Food Program (CSFP) delivers monthly food packages to low-income, elderly individuals (below 130 percent of the Federal Poverty Level and at least 60 years of age)."
+    content: "The Commodity Supplemental Food Program (CSFP) delivers monthly food packages to low-income, elderly individuals (below 130 percent of the Federal Poverty Level and at least 60 years of age).",
+    guideLevel: 2
 }
