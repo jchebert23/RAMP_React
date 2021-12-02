@@ -72,23 +72,34 @@ export function getGuideScreenStyles(){
 export function getNavigationStyles(){
   const topIconWidth = Dimensions.get('window').width/5.75
   return StyleSheet.create({
-      headerContainer: {
-        paddingTop: 40,
+      homeScreenHeaderContainer: {
+        backgroundColor: '#F7F7F7',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      homeScreenHeaderText:{
+        fontWeight: "500",
+        fontSize: 26, 
+        fontFamily: 'Outfit',
+        textAlign: 'center',
+        width: "80%"
+      },
+      iconHeaderContainer: {
         backgroundColor: '#F7F7F7',
         alignItems: 'center',
         justifyContent: 'flex-start',
         height: 120,
         flexDirection: "row",
       },
-      headerCenterContainer:{
+      iconHeaderCenterContainer:{
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
       },
-      headerLeftContainer:{
+      iconHeaderLeftContainer:{
         flex:1,
       },
-      headerRightContainer:{
+      iconHeaderRightContainer:{
         flex:1
       },
       backButton:{

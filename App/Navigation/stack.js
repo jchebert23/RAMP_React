@@ -2,12 +2,13 @@ import HomeScreen  from "../Views/homeScreen"
 import MapScreen from "../Views/mapScreen"
 import GuideScreen from "../Views/guideScreen";
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { getNavigationStyles } from "../Views/styles";
 import { getResourceIcon } from "../Controllers/commonController";
 import { HeaderBackButton } from "@react-navigation/elements";
+import {useFonts} from 'expo-font';
 
 const Stack = createStackNavigator();
 const styles = getNavigationStyles()
@@ -23,12 +24,12 @@ function NavigationTool() {
             header: ({route,navigation}) =>{
               if(route.name ==="Home")
               {
-                return(<Text> Resource Access Mapping Project </Text>)
+                return(<HomeScreenHeader/>)
               }
               else
               {
                 const ResourceIcon = getResourceIcon(route.params.resource.id)
-                return(<Header Icon={ResourceIcon} nav={navigation}/>);
+                return(<IconHeader Icon={ResourceIcon} nav={navigation}/>);
               }
             }
           }
@@ -41,19 +42,35 @@ function NavigationTool() {
   );
 }
 
-function Header(props){
+function HomeScreenHeader(){
+  let [fontsLoaded] = useFonts({
+    'Outfit': require('../../assets/fontFamilies/Outfit/static/Outfit-Light.ttf')
+  });
+  if(!fontsLoaded){
+    return (<Text> Hello</Text>) 
+  }
+  else{
+    return(
+      <SafeAreaView style={styles.homeScreenHeaderContainer}>
+        <Text style={styles.homeScreenHeaderText}> Resource Access Mapping Project </Text>
+      </SafeAreaView>
+    )
+  }
+}
+
+function IconHeader(props){
   return(
-  <View style={styles.headerContainer}>
-    <View style={styles.headerLeftContainer}>
+  <SafeAreaView style={styles.iconHeaderContainer}>
+    <View style={styles.iconHeaderLeftContainer}>
       <HeaderBackButton style={styles.backButton} onPress={()=> props.nav.goBack()}/>
     </View>
-    <View style={styles.headerCenterContainer}>
+    <View style={styles.iconHeaderCenterContainer}>
         <View style={styles.centerIcon}>
           <props.Icon width="78%" height="78%"/>
         </View>
     </View>
-    <View style={styles.headerRightContainer}/>
-  </View>)
+    <View style={styles.iconHeaderRightContainer}/>
+  </SafeAreaView>)
 }
 
 export default NavigationTool;
