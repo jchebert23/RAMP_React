@@ -117,15 +117,19 @@ export function getGuideScreenStyles(){
       flex: 1,
       backgroundColor: '#F8F8F8',
     },
-    listItem:{
+    listItemContainer:{
       margin:10,
       padding:10,
       backgroundColor:"#FFF",
       width:"80%",
       flex:1,
       alignSelf:"center",
-      flexDirection:"row",
       borderRadius:5
+    },
+    listItemQuestion:{
+      fontFamily: "Outfit",
+      width: "80%",
+      textAlign: "center",
     }
   });
 }

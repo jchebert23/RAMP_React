@@ -5,18 +5,13 @@ import {getGuideScreenStyles} from "./styles.js"
 
 const styles = getGuideScreenStyles()
 
-function Item({ item }) {
+function Item({ item, navigation }) {
     return (
-      <View style={styles.listItem}>
-        <Image source={{uri:item.photo}}  style={{width:60, height:60,borderRadius:30}} />
+      <TouchableOpacity style={styles.listItemContainer} onPress={()=> navigation.navigate('Guide',{resource: item})}>
         <View style={{alignItems:"center",flex:1}}>
-          <Text style={{fontWeight:"bold"}}>{item.name}</Text>
-          <Text>{item.position}</Text>
+          <Text style={styles.listItemQuestion}>{item.prompt}</Text>
         </View>
-        <TouchableOpacity style={{height:50,width:50, justifyContent:"center",alignItems:"center"}}>
-          <Text style={{color:"green"}}>Call</Text>
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     );
 }
 
@@ -28,8 +23,8 @@ export default function guideScreen({route, navigation}) {
           <FlatList
             style={{flex:1}}
             data={resourceGuideQuestions}
-            renderItem={({ item }) => <Item item={item}/>}
-            keyExtractor={item => item.email}
+            renderItem={({ item }) => <Item item={item} navigation={navigation}/>}
+            keyExtractor={item => item.id}
           />
         </View>
       );

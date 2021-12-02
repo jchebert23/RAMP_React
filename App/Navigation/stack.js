@@ -28,7 +28,7 @@ function NavigationTool() {
               }
               else
               {
-                const ResourceIcon = getResourceIcon(route.params.resource.id)
+                const ResourceIcon = getResourceIcon(route.params.resource.groupId)
                 return(<IconHeader Icon={ResourceIcon} nav={navigation}/>);
               }
             }

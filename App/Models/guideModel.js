@@ -1,5 +1,9 @@
-import foodGuideQuestions from "./Data/foodGuide";
+import { foodGuides, firstFoodSubGuide} from "./Data/foodGuide";
 
-export function fetchResourceGuideQuestions(guideID){
-    return foodGuideQuestions
+export function fetchResourceGuides(guideID){
+    return foodGuides
+}
+
+export function fetchResourceSubGuides(guideID){
+    return firstFoodSubGuide
 }
