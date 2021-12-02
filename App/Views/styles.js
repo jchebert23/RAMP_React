@@ -58,17 +58,6 @@ export function getMapScreenStyles(){
       });
 }
 
-export function getGuideScreenStyles(){
-  const topIconWidth = Dimensions.get('window').width/5
-  return StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: '#F7F7F7',
-        flexDirection: 'column'
-      }
-  })
-}
-
 export function getNavigationStyles(){
   const topIconWidth = Dimensions.get('window').width/5.75
   return StyleSheet.create({
@@ -120,4 +109,23 @@ export function getNavigationStyles(){
         elevation: 5
       }
   })
+}
+
+export function getGuideScreenStyles(){
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#F8F8F8',
+    },
+    listItem:{
+      margin:10,
+      padding:10,
+      backgroundColor:"#FFF",
+      width:"80%",
+      flex:1,
+      alignSelf:"center",
+      flexDirection:"row",
+      borderRadius:5
+    }
+  });
 }
