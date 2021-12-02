@@ -27,7 +27,6 @@ export default function HomeScreen({navigation}) {
             numColumns={numColumns}
             renderItem={({ item }) => <Item item={item} navigation={navigation}/>}
             keyExtractor={item => item.id}
-
         />
         </View> 
     );
