@@ -7,7 +7,7 @@ const styles = getGuideScreenStyles()
 
 function Item({ item, navigation }) {
     return (
-      <TouchableOpacity style={styles.listItemContainer} onPress={()=> navigation.navigate('Guide',{resource: item})}>
+      <TouchableOpacity style={styles.listItemContainer} onPress={()=> navigation.push('Guide',{resource: item})}>
         <View style={{alignItems:"center",flex:1}}>
           <Text style={styles.listItemQuestion}>{item.prompt}</Text>
         </View>
