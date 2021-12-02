@@ -1,9 +1,9 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import NavigationTool from './App/Navigation/stack'
+import NavigationTool from './App/Navigation/stack';
 
-export default class App extends React.Component {
-  render(){
+export default function App (){
     return (<NavigationTool />);
-  }
 }
+
 

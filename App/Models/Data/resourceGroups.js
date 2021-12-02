@@ -2,28 +2,22 @@ import MySVGs from '../../../assets/icons';
 
 export default resourceGroups = [
         {
-            "icon": MySVGs.Community,
-            "id": "community"
+            "id": "transportation"
         },
         {
-            "icon": MySVGs.Health,
             "id": "health"
         },
         {
-            "icon": MySVGs.Food,
             "id": "food"
         },
         {
-          "icon": MySVGs.Employment,
-          "id": "employment"
+            "id": "employment"
         },
         {
-          "icon": MySVGs.Education,
-          "id": "education"
+            "id": "education"
         },
         {
-          "icon": MySVGs.Housing,
-          "id": "housing"
+            "id": "housing"
         }
     ]
   
