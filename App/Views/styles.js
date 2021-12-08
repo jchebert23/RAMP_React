@@ -118,22 +118,24 @@ export function getGuideScreenStyles(){
       flex: 1,
       backgroundColor: '#F8F8F8',
     },
-    listItemQuestion:{
+    guidePrompt:{
       fontFamily: "Outfit",
       width: "80%",
       textAlign: "center",
+      fontSize: 20
     }
   });
 }
 
-export function getGuideScreenPromptContainerStyle(guideLevel){
+export function getGuideScreenPromptContainerStyle(guideLevel,questionOrContent){
   const borderColor = getBorderColorByGuideLevel(guideLevel)
+  const containerWidth =  (questionOrContent ? "80%": "95%")
   return StyleSheet.create({
     listItemContainer:{
       margin:10,
       padding:10,
       backgroundColor:"#FFF",
-      width:"80%",
+      width:containerWidth,
       flex:1,
       alignSelf:"center",
       borderRadius:5,

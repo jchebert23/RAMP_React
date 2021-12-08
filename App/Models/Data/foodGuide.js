@@ -27,7 +27,7 @@ export const foodGuides ={
             "groupId": "food"
         }
     ],
-    content: "null",
+    content: null,
     guideLevel: 0
 }
 
