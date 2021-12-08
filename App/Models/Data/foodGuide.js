@@ -27,6 +27,7 @@ export const foodGuides ={
             "groupId": "food"
         }
     ],
+    prompt: null,
     content: null,
     guideLevel: 0
 }
@@ -64,6 +65,7 @@ export const thirdFoodSubGuide = {
                 "id": "4.3.1" 
             },
         ],
+    prompt: "What are food pantries?",
     content: "Food pantries are centers that distribute packages of groceries  (i.e., fruits, vegetables, protein, dairy, grains) to eligible individuals and households in a specified area. A selected number of food pantries also deliver packages to those who are homebound.",
     guideLevel: 1
 }

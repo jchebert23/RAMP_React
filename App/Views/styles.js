@@ -117,19 +117,15 @@ export function getGuideScreenStyles(){
     container: {
       flex: 1,
       backgroundColor: '#F8F8F8',
-    },
-    guidePrompt:{
-      fontFamily: "Outfit",
-      width: "80%",
-      textAlign: "center",
-      fontSize: 20
     }
   });
 }
 
-export function getGuideScreenPromptContainerStyle(guideLevel,questionOrContent){
-  const borderColor = getBorderColorByGuideLevel(guideLevel)
-  const containerWidth =  (questionOrContent ? "80%": "95%")
+export function getGuideScreenItemStyles(guideLevel,itemType){
+  const borderColor = getBorderColorByGuideLevel((itemType==1 || itemType==2) ? guideLevel-1:guideLevel)
+  const containerWidth =  ((itemType==1 || itemType==2) ? "95%": "80%")
+  const textAlign = (itemType == 1 ? null:"center")
+
   return StyleSheet.create({
     listItemContainer:{
       margin:10,
@@ -142,6 +138,12 @@ export function getGuideScreenPromptContainerStyle(guideLevel,questionOrContent)
       borderWidth:3,
       borderColor: borderColor
     },
+    listItemText:{
+      fontFamily: "Outfit",
+      width: "80%",
+      textAlign: textAlign,
+      fontSize: 20
+    }
   })
 }
 
