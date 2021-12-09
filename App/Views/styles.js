@@ -122,9 +122,10 @@ export function getGuideScreenStyles(){
 }
 
 export function getGuideScreenItemStyles(guideLevel,itemType){
-  const borderColor = getBorderColorByGuideLevel((itemType==1 || itemType==2) ? guideLevel-1:guideLevel)
+  const borderColor = getBorderColorByGuideLevel(guideLevel)
   const containerWidth =  ((itemType==1 || itemType==2) ? "95%": "80%")
-  const textAlign = (itemType == 1 ? null:"center")
+  const textAlign = (itemType == 2 ? null:"center")
+  const fontSize = (itemType == 2 ? 14: 20)
 
   return StyleSheet.create({
     listItemContainer:{
@@ -142,7 +143,7 @@ export function getGuideScreenItemStyles(guideLevel,itemType){
       fontFamily: "Outfit",
       width: "80%",
       textAlign: textAlign,
-      fontSize: 20
+      fontSize: fontSize
     }
   })
 }
