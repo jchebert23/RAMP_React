@@ -24,7 +24,6 @@ export default function guideScreen({route, navigation}) {
     const groupId = route.params.groupId
     const resourceID = route.params.id
     //controller call
-    console.log("About to do Controller call")
     const cells = getResourceGuide(resourceID)
     return (
         <View style={styles.container}>
