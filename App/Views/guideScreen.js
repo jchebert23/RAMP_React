@@ -5,13 +5,14 @@ import {getGuideScreenStyles, getGuideScreenItemStyles} from "./styles.js"
 
 const styles = getGuideScreenStyles()
 
-function Item({ item, guideLevel, navigation, itemType, groupId}) {
+function Item({ item, navigation, groupId}) {
+    const itemType = item.cellType
+    const guideLevel =item.guideLevel
+    const text = item.text
     const itemStyles = getGuideScreenItemStyles(guideLevel,itemType)
-    const text = (itemType==2 ? item.content: item.prompt)
-    console.log(text + "\n")
-    const touchDisabled = (itemType==0)
+    const touchDisabled = (itemType==1 || itemType==2)
     return (
-      <TouchableOpacity style={itemStyles.listItemContainer} disable={touchDisabled} onPress={()=> navigation.push('Guide',{groupId:groupId , id: item.id, prompt: item.prompt})}>
+      <TouchableOpacity style={itemStyles.listItemContainer} disabled={touchDisabled} onPress={()=> navigation.push('Guide',{groupId:groupId , id: item.id})}>
         <View style={{alignItems:"center",flex:1}}>
           <Text style={itemStyles.listItemText}>{text}</Text>
         </View>
@@ -22,24 +23,14 @@ function Item({ item, guideLevel, navigation, itemType, groupId}) {
 export default function guideScreen({route, navigation}) {
     const groupId = route.params.groupId
     const resourceID = route.params.id
-    const parentPrompt = route.params.prompt
     //controller call
-    const resourceGuide = getResourceGuide(resourceID)
-    const prompts = resourceGuide.prompts
-    const guideLevel = resourceGuide.guideLevel
-    console.log(resourceGuide)
+    const cells = getResourceGuide(resourceID)
     return (
         <View style={styles.container}>
-          {parentPrompt == null ? null : 
-            <View style={{flex:.33}} >
-              <Item item={resourceGuide} guideLevel={guideLevel} navigation={navigation} itemType={1} groupId={groupId}/>
-              <Item item={resourceGuide} guideLevel={guideLevel} navigation={navigation} itemType={2} groupId={groupId}/>
-            </View>
-          }
           <FlatList
-            style={{flex:3}}
-            data={prompts}
-            renderItem={({ item }) => <Item item={item} guideLevel={guideLevel} navigation={navigation} itemType={0} groupId={groupId}/>}
+            style={{flex:1}}
+            data={cells}
+            renderItem={({ item }) => <Item item={item} navigation={navigation} groupId={groupId}/>}
             keyExtractor={item => item.id}
           />
         </View>

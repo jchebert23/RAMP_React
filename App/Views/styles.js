@@ -149,11 +149,11 @@ export function getGuideScreenItemStyles(guideLevel,itemType){
 
 function getBorderColorByGuideLevel(guideLevel){
   switch(guideLevel){
-      case 0:
-          return "black";
       case 1:
-          return "gainsboro";
+          return "black";
       case 2:
+          return "gainsboro";
+      case 3:
           return "ivory";
   }
 }
