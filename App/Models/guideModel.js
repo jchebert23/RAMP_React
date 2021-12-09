@@ -1,9 +1,10 @@
-import { foodGuides, thirdFoodSubGuide} from "./Data/foodGuide";
+import { idToPrompt } from "./Data/foodGuide";
 
-export function fetchResourceGuides(guideID){
-    return foodGuides
-}
-
-export function fetchResourceSubGuides(guideID){
-    return thirdFoodSubGuide
+export function fetchResourceGuide(ids){
+    var guide = []
+    if(ids!=null)
+    {
+        ids.forEach(id => guide.push(idToPrompt[id]))
+    }
+    return guide
 }

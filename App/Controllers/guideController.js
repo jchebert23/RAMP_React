@@ -1,15 +1,8 @@
-import { fetchResourceGuides, fetchResourceSubGuides } from "../Models/guideModel";
+import { fetchResourceGuide} from "../Models/guideModel";
 
 export function getResourceGuide(guideID){
-    var guide = null
-    if(guideID==="food")
-    {
-        guide =  fetchResourceGuides(guideID)
-    }
-    else{
-        guide = fetchResourceSubGuides(guideID)
-    }
-    const prompts = guide.prompts
+
+    const guide =  fetchResourceGuide([guideID])[0]
     var cells = []
     if(guide.prompt!=null){
         cells.push({
@@ -27,12 +20,14 @@ export function getResourceGuide(guideID){
             guideLevel: idToGuideLevel(guideID)
         })
     }
-    prompts.forEach(prompt => 
+
+    const subPrompts = fetchResourceGuide(guide.children)
+    subPrompts.forEach((prompt,i) => 
         cells.push({
             text: prompt.prompt,
             cellType:0,
-            id: prompt.id,
-            guideLevel: idToGuideLevel(prompt.id)
+            id: guide.children[i],
+            guideLevel: idToGuideLevel(guide.children[i])
         })
     )
     return cells
