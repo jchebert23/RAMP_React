@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 
 export function getHomeScreenStyles(numColumns){
@@ -58,17 +59,6 @@ export function getMapScreenStyles(){
       });
 }
 
-export function getGuideScreenStyles(){
-  const topIconWidth = Dimensions.get('window').width/5
-  return StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: '#F7F7F7',
-        flexDirection: 'column'
-      }
-  })
-}
-
 export function getNavigationStyles(){
   const topIconWidth = Dimensions.get('window').width/5.75
   return StyleSheet.create({
@@ -120,4 +110,51 @@ export function getNavigationStyles(){
         elevation: 5
       }
   })
+}
+
+export function getGuideScreenStyles(){
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#F8F8F8',
+    }
+  });
+}
+
+export function getGuideScreenItemStyles(guideLevel,itemType){
+  const borderColor = getBorderColorByGuideLevel(guideLevel)
+  const containerWidth =  ((itemType==1 || itemType==2) ? "95%": "80%")
+  const textAlign = (itemType == 2 ? null:"center")
+  const fontSize = (itemType == 2 ? 14: 20)
+
+  return StyleSheet.create({
+    listItemContainer:{
+      margin:10,
+      padding:10,
+      backgroundColor:"#FFF",
+      width:containerWidth,
+      flex:1,
+      alignSelf:"center",
+      borderRadius:5,
+      borderWidth:3,
+      borderColor: borderColor
+    },
+    listItemText:{
+      fontFamily: "Outfit",
+      width: "80%",
+      textAlign: textAlign,
+      fontSize: fontSize
+    }
+  })
+}
+
+function getBorderColorByGuideLevel(guideLevel){
+  switch(guideLevel){
+      case 1:
+          return "black";
+      case 2:
+          return "gainsboro";
+      case 3:
+          return "ivory";
+  }
 }
