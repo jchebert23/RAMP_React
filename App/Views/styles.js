@@ -43,8 +43,9 @@ export function getMapScreenStyles(){
           flexDirection: 'column'
         },
         map: {
-          width: Dimensions.get('window').width,
-          height: Dimensions.get('window').height/2.33,
+          ...StyleSheet.absoluteFillObject
+          //width: Dimensions.get('window').width,
+          //height: Dimensions.get('window').height/2.33,
         },
         listItem:{
           margin:10,
@@ -133,7 +134,7 @@ export function getGuideScreenItemStyles(guideLevel,itemType){
       padding:10,
       backgroundColor:"#FFF",
       width:containerWidth,
-      flex:1,
+      flex: 1,
       alignSelf:"center",
       borderRadius:5,
       borderWidth:3,
