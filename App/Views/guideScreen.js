@@ -16,7 +16,7 @@ function Item({ item, navigation, groupId=null}) {
     const touchDisabled = (itemType != 0)
     return (
       <TouchableOpacity style={itemStyles.listItemContainer} disabled={touchDisabled} onPress={()=> navigation.push('Guide',{groupId:groupId , id: item.id})}>
-        <View style={{alignItems:"center",flex:1}}>
+        <View style={{alignItems:"center",justifyContent:"center",flex:1}}>
           <Text style={itemStyles.listItemText}>{text}</Text>
         </View>
       </TouchableOpacity>
@@ -40,12 +40,18 @@ function Map({cells, navigation}){
   const mapStyles = getMapScreenStyles()
   console.log("IN MA")
   console.log(cells)
+  const itemType = cells[0].cellType
+  const guideLevel = cells[0].guideLevel
+  const text = cells[0].text
+  const itemStyles = getGuideScreenItemStyles(guideLevel,itemType)
   return(
-    <View style={{flex: 1, backgroundColor: "red", flexDirection: "column"}}>
-      <View style={{ flex: 1, backgroundColor: "darkorange" }} >
-      <Item item={cells[0]} navigation={navigation}/>
+    <View style={{flex: 1, backgroundColor: "red"}}>
+      <View style={{ flex: 1, backgroundColor: "darkorange",justifyContent:"center"}} >
+        <View style={{backgroundColor: "green", margin: 10, alignItems:"center", padding: 10}}>
+          <Text styles={itemStyles.listItemText}>{text}</Text>
+        </View>
       </View>
-      <View style={{ flex: 2, backgroundColor: "green"}} />
+      <View style={{ flex: 2, backgroundColor: "green"}}/>
       <View style={{ flex: 3, backgroundColor: "blue" }} />
     </View>
   )

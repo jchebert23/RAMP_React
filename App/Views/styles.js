@@ -134,7 +134,7 @@ export function getGuideScreenItemStyles(guideLevel,itemType){
       padding:10,
       backgroundColor:"#FFF",
       width:containerWidth,
-      flex: 1,
+      flexGrow:0,
       alignSelf:"center",
       borderRadius:5,
       borderWidth:3,
@@ -142,7 +142,8 @@ export function getGuideScreenItemStyles(guideLevel,itemType){
     },
     listItemText:{
       fontFamily: "Outfit",
-      width: "80%",
+      width: "90%",
+      margin: 10,
       textAlign: textAlign,
       fontSize: fontSize
     }
