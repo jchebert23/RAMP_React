@@ -35,11 +35,10 @@ function ListView({cells, groupId, navigation}){
 }
 
 function Map({cells, navigation}){
-  const mapStyles = getMapScreenStyles()
   console.log(cells)
   return(
-    <View style={{flex: 1, backgroundColor: "red"}}>
-      <View style={{ flex: 1, backgroundColor: "darkorange",justifyContent:"center"}} >
+    <View style={{flex: 1,backgroundColor: '#F7F7F7'}}>
+      <View style={{ flex: 1, justifyContent:"center"}} >
         <Item item={cells[0]} navigation={navigation}/>
       </View>
       <View style={{ flex: 5, backgroundColor: "green"}}>

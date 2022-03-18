@@ -45,7 +45,7 @@ export default function MapScreen() {
         ))}
       </MapView>
       <FlatList
-          style={{flex:1,paddingVertical:20}}
+          style={{flex:1,marginBottom: 15}}
           data={healthLocations}
           renderItem={({ item }) => <Item item={item}/>}
           keyExtractor={item => item.email}

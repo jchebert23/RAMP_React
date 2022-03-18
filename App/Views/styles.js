@@ -43,10 +43,9 @@ export function getMapScreenStyles(){
           flexDirection: 'column'
         },
         map: {
-          flex:1
-          //...StyleSheet.absoluteFillObject
-          //width: Dimensions.get('window').width,
-          //height: Dimensions.get('window').height/2.33,
+          flex:1,
+          marginRight: 10,
+          marginLeft: 10
         },
         listItem:{
           margin:10,
