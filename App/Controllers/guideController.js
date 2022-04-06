@@ -7,11 +7,12 @@ export function getResourceGuide(guideID){
     if(guide.prompt!=null){
         cells.push({
             text: guide.prompt,
-            cellType:1,
+            cellType: (guide.mapView ? 3 : 1),
             id: guideID,
             guideLevel: idToGuideLevel(guideID)
         })
     }
+
     if(guide.content!=null){
         cells.push({
             text: guide.content,

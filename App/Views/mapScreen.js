@@ -26,26 +26,26 @@ export default function MapScreen() {
   const healthLocations = getHealthLocations()
   return (
     <View style={styles.container}>
-      <MapView 
-      style={styles.map}
-      initialRegion={{
-        latitude: 41.3083,
-        longitude: -72.9279,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }}
-      >
-      {healthLocations.map((location, index) => (
-     <Marker
-        key={index}
-        coordinate={location.location}
-        title={location.name}
-        description={"Default Text"}
-      />
-      ))}
+        <MapView 
+        style={styles.map}
+        initialRegion={{
+          latitude: 41.3083,
+          longitude: -72.9279,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        >
+        {healthLocations.map((location, index) => (
+      <Marker
+          key={index}
+          coordinate={location.location}
+          title={location.name}
+          description={"Default Text"}
+        />
+        ))}
       </MapView>
       <FlatList
-          style={{flex:1,paddingVertical:20}}
+          style={{flex:1,marginBottom: 15}}
           data={healthLocations}
           renderItem={({ item }) => <Item item={item}/>}
           keyExtractor={item => item.email}

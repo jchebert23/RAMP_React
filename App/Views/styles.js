@@ -43,8 +43,9 @@ export function getMapScreenStyles(){
           flexDirection: 'column'
         },
         map: {
-          width: Dimensions.get('window').width,
-          height: Dimensions.get('window').height/2.33,
+          flex:1,
+          marginRight: 10,
+          marginLeft: 10
         },
         listItem:{
           margin:10,
@@ -133,15 +134,17 @@ export function getGuideScreenItemStyles(guideLevel,itemType){
       padding:10,
       backgroundColor:"#FFF",
       width:containerWidth,
-      flex:1,
       alignSelf:"center",
       borderRadius:5,
       borderWidth:3,
-      borderColor: borderColor
+      borderColor: borderColor,
+      justifyContent: "center",
+      alignItems: "center"
     },
     listItemText:{
       fontFamily: "Outfit",
-      width: "80%",
+      width: "90%",
+      margin: 10,
       textAlign: textAlign,
       fontSize: fontSize
     }
