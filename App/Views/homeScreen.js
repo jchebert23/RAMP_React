@@ -10,7 +10,7 @@ const styles = getHomeScreenStyles(2)
 function Item({ item, navigation}) {
     const ResourceIcon = getResourceIcon(item.id)
     return (
-      <TouchableOpacity style={styles.listItem} onPress={()=> navigation.push('Guide',{id: item.id, groupId: item.groupId})} >
+      <TouchableOpacity disabled={item.disabled} style={styles.listItem} onPress={()=> navigation.push('Guide',{id: item.id, groupId: item.groupId})} >
         <ResourceIcon width="78%" height="78%"/>
       </TouchableOpacity>
     );
