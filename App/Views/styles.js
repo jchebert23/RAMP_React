@@ -50,7 +50,7 @@ export function getMapScreenStyles(){
         listItem:{
           flex:1,
           alignSelf:"center",
-          borderRadius:5
+          flexDirection: "row"
         }
       });
 }
