@@ -10,14 +10,16 @@ import {getResourceGroups}  from "../Controllers/homeScreenController.js"
 const styles = getMapScreenStyles()
 
 function MapKeyItem({ item }) {
-    const ResourceIcon = getResourceIcon(item.id)
     return (
       <View style={styles.listItem}>
-        <View style={{alignItems:"center",flex:4}}>
-          <Text style={{fontWeight:"bold", textAlign:"center"}}>{item.label}</Text>
-        </View>
-        <View style={{flex: 1}}> 
-          <ResourceIcon width="78%" height="78%"/>
+        <View style={{alignItems:"center",flex:1, marginHorizontal: 5, alignItems: "center", borderColor: "grey", borderWidth: ".5",
+          backgroundColor:item.color, shadowColor: '#000',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: .3,
+          shadowRadius: 5,  
+          elevation: 5,
+          borderRadius:30}}>
+          <Text>{item.label}</Text>
         </View>
       </View>
     );
@@ -51,6 +53,7 @@ export default function MapScreen() {
         </View>
         <View style= {{flex:3}}>
           <FlatList
+              style = {{flex:1}}
               data={resourceGroups}
               renderItem={({ item }) => <MapKeyItem item={item}/>}
               keyExtractor={item => item.label}
