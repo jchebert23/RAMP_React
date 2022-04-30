@@ -3,9 +3,10 @@ import { View, FlatList, TouchableOpacity} from 'react-native';
 import {getResourceGroups}  from "../Controllers/homeScreenController.js"
 import {getHomeScreenStyles} from "./styles.js"
 import { getResourceIcon } from '../Controllers/commonController.js';
+import MapScreen from './mapScreen.js';
 
-const numColumns = 2
-const styles = getHomeScreenStyles(2)
+const numColumns = 3
+const styles = getHomeScreenStyles(numColumns)
 
 function Item({ item, navigation}) {
     const ResourceIcon = getResourceIcon(item.id)
@@ -21,13 +22,18 @@ export default function HomeScreen({navigation}) {
 
     return (
         <View style={styles.container}>
-        <FlatList
-            style={{flex:1,marginTop:40}}
-            data={resourceGroups}
-            numColumns={numColumns}
-            renderItem={({ item }) => <Item item={item} navigation={navigation}/>}
-            keyExtractor={item => item.id}
-        />
+          <View style={{flex:2}}>
+            <MapScreen/>
+          </View>
+          <View style={{flex:3}}>
+            <FlatList
+                style={{flex:1}}
+                data={resourceGroups}
+                numColumns={numColumns}
+                renderItem={({ item }) => <Item item={item} navigation={navigation}/>}
+                keyExtractor={item => item.id}
+            />
+          </View>
         </View> 
     );
 }

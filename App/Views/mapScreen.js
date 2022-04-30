@@ -3,53 +3,60 @@ import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { getHealthLocations } from '../Controllers/mapScreenController';
+import { getResourceIcon } from '../Controllers/commonController.js';
 import {getMapScreenStyles} from "./styles.js"
+import {getResourceGroups}  from "../Controllers/homeScreenController.js"
 
 const styles = getMapScreenStyles()
 
-function Item({ item }) {
+function MapKeyItem({ item }) {
+    const ResourceIcon = getResourceIcon(item.id)
     return (
       <View style={styles.listItem}>
-        <item.photo width={60} height={60} borderRadius={30} />
-        <View style={{alignItems:"center",flex:1}}>
-          <Text style={{fontWeight:"bold", textAlign:"center"}}>{item.name}</Text>
-          <Text style={{textAlign:"center"}}>{item.locationType}</Text>
+        <View style={{alignItems:"center",flex:4}}>
+          <Text style={{fontWeight:"bold", textAlign:"center"}}>{item.label}</Text>
         </View>
-        <TouchableOpacity style={{height:50,width:70, justifyContent:"center",alignItems:"center"}}>
-          <Text style={{color:"green"}}>Directions</Text>
-        </TouchableOpacity>
+        <View style={{flex: 1}}> 
+          <ResourceIcon width="78%" height="78%"/>
+        </View>
       </View>
     );
   }
 
 export default function MapScreen() {
   const healthLocations = getHealthLocations()
+  const resourceGroups = getResourceGroups()
   return (
     <View style={styles.container}>
-        <MapView 
-        style={styles.map}
-        initialRegion={{
-          latitude: 41.3083,
-          longitude: -72.9279,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-        >
-        {healthLocations.map((location, index) => (
-      <Marker
-          key={index}
-          coordinate={location.location}
-          title={location.name}
-          description={"Default Text"}
-        />
-        ))}
-      </MapView>
-      <FlatList
-          style={{flex:1,marginBottom: 15}}
-          data={healthLocations}
-          renderItem={({ item }) => <Item item={item}/>}
-          keyExtractor={item => item.email}
-        />
+      <View style = {{flex:1, flexDirection: "row", borderColor: "black", borderWidth: "2"}}>
+        <View style= {{flex:5, borderColor: "black", borderRightWidth: "2"}}>
+          <MapView 
+          style = {{flex:1}}
+          initialRegion={{
+            latitude: 41.3083,
+            longitude: -72.9279,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+          >
+          {healthLocations.map((location, index) => (
+        <Marker
+            key={index}
+            coordinate={location.location}
+            title={location.name}
+            description={"Default Text"}
+          />
+          ))}
+          </MapView>
+        </View>
+        <View style= {{flex:3}}>
+          <FlatList
+              data={resourceGroups}
+              renderItem={({ item }) => <MapKeyItem item={item}/>}
+              keyExtractor={item => item.label}
+            />
+        </View>
+      </View>
     </View>
   );
 }

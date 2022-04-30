@@ -38,19 +38,17 @@ export function getHomeScreenStyles(numColumns){
 export function getMapScreenStyles(){
     return StyleSheet.create({
         container: {
-          flex: 1,
           backgroundColor: '#F7F7F7',
-          flexDirection: 'column'
+          flexDirection: 'row',
+          paddingVertical: 20,
+          flex: 2
         },
         map: {
-          flex:1,
-          marginRight: 10,
-          marginLeft: 10
+          flex:4,
         },
         listItem:{
           margin:10,
           padding:10,
-          backgroundColor:"#FFF",
           width:"80%",
           flex:1,
           alignSelf:"center",
