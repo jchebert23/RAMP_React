@@ -1,14 +1,14 @@
 export default healthLocations = [
         {
-            "name": "Food Bank 1",
+            "name": "health1",
             "color": "#A3DBFF",
             "location": { 
-                latitude: 41.3038,
+                latitude: 41.2998,
                 longitude: -72.9357
             }
         },
         {
-            "name": "Soup Kitchen 1",
+            "name": "health2",
             "color": "#A3DBFF",
             "location": { 
                 latitude: 41.3156,
@@ -16,7 +16,7 @@ export default healthLocations = [
             }
         },
         {
-            "name": "Food Bank 2",
+            "name": "health3",
             "color": "#A3DBFF",
             "location": { 
                 latitude: 41.3199,
@@ -24,11 +24,11 @@ export default healthLocations = [
             }
         },
         {
-            "name": "Soup Kitchen 2",
+            "name": "health4",
             "color": "#A3DBFF",
             "location": { 
                 latitude: 41.30692906287631, 
-                longitude: -72.93235856933171
+                longitude: -72.92635856933171
             }
         }
     ]

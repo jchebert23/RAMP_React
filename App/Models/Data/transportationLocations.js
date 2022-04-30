@@ -3,8 +3,8 @@ export default transportationLocations = [
             "name": "Transportation1",
             "color": "#FF9947",
             "location": { 
-                latitude: 41.30700,
-                longitude: -72.9357
+                latitude: 41.32500,
+                longitude: -72.9270
             }
         },
         {
