@@ -2,10 +2,11 @@ import * as React from 'react';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
-import { getHealthLocations } from '../Controllers/mapScreenController';
+import { getAllLocations } from '../Controllers/mapScreenController';
 import { getResourceIcon } from '../Controllers/commonController.js';
 import {getMapScreenStyles} from "./styles.js"
 import {getResourceGroups}  from "../Controllers/homeScreenController.js"
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 const styles = getMapScreenStyles()
 
@@ -27,7 +28,7 @@ function MapKeyItem({ item }) {
   }
 
 export default function MapScreen() {
-  const healthLocations = getHealthLocations()
+  const allLocations = getAllLocations()
   const resourceGroups = getResourceGroups()
   return (
     <View style={styles.container}>
@@ -54,11 +55,12 @@ export default function MapScreen() {
             longitudeDelta: 0.0421,
           }}
           >
-          {healthLocations.map((location, index) => (
+          {allLocations.map((location, index) => (
         <Marker
             key={index}
             coordinate={location.location}
             title={location.name}
+            pinColor={location.color}
             description={"Default Text"}
           />
           ))}
