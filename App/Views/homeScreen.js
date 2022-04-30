@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, TouchableOpacity, Text} from 'react-native';
+import { View, FlatList, TouchableOpacity, Text, SafeAreaView} from 'react-native';
 import {getResourceGroups}  from "../Controllers/homeScreenController.js"
 import {getHomeScreenStyles} from "./styles.js"
 import { getResourceIcon } from '../Controllers/commonController.js';
@@ -30,26 +30,24 @@ function Item({ item, navigation}) {
 
 export default function HomeScreen({navigation}) {
     const resourceGroups = getResourceGroups()
-
+    //IMPORTANT: SAFEAREAVIEW only works in ios
     return (
         <View style={styles.container}>
           <View style={{flex:1, marginTop:20}}>
             <MapScreen/>
           </View>
-          <View style={{flex:1}}>
-            <View style={{flex:1, justifyContent: "center"}}>
-              <View style = {{flexDirection: "row"}}>
-                <Item item={resourceGroups[0]} navigation={navigation}/>
-                <Item item={resourceGroups[1]} navigation={navigation}/>
-                <Item item={resourceGroups[2]} navigation={navigation}/>
-              </View>
-              <View style = {{flexDirection: "row"}}>
-                <Item item={resourceGroups[3]} navigation={navigation}/>
-                <Item item={resourceGroups[4]} navigation={navigation}/>
-                <Item item={resourceGroups[5]} navigation={navigation}/>
-              </View>
+          <SafeAreaView style={{justifyContent: "center"}}>
+            <View style = {{flexDirection: "row"}}>
+              <Item item={resourceGroups[0]} navigation={navigation}/>
+              <Item item={resourceGroups[1]} navigation={navigation}/>
+              <Item item={resourceGroups[2]} navigation={navigation}/>
             </View>
-          </View>
+            <View style = {{flexDirection: "row"}}>
+              <Item item={resourceGroups[3]} navigation={navigation}/>
+              <Item item={resourceGroups[4]} navigation={navigation}/>
+              <Item item={resourceGroups[5]} navigation={navigation}/>
+            </View>
+          </SafeAreaView>
         </View> 
     );
 }

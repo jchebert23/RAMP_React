@@ -32,8 +32,20 @@ export default function MapScreen() {
   return (
     <View style={styles.container}>
       <View style = {{flex:1, flexDirection: "column", borderColor: "black", borderWidth: "2"}}>
-        <View style= {{flex:5, borderColor: "black", borderBottomWidth: "2"}}>
-          <MapView 
+        <View style= {{flex:1, borderColor: "black", borderBottomWidth: "2"}}>
+            <View style = {{flex:1, flexDirection: "row"}}>
+              <MapKeyItem item={resourceGroups[0]}/>
+              <MapKeyItem item={resourceGroups[1]}/>
+              <MapKeyItem item={resourceGroups[2]}/>
+            </View>
+            <View style = {{flex:1, flexDirection: "row"}}>
+              <MapKeyItem item={resourceGroups[3]}/>
+              <MapKeyItem item={resourceGroups[4]}/>
+              <MapKeyItem item={resourceGroups[5]}/>
+            </View>
+        </View>
+        <View style= {{flex:5}}>
+        <MapView 
           style = {{flex:1}}
           initialRegion={{
             latitude: 41.3083,
@@ -51,18 +63,6 @@ export default function MapScreen() {
           />
           ))}
           </MapView>
-        </View>
-        <View style= {{flex:1}}>
-            <View style = {{flex:1, flexDirection: "row"}}>
-              <MapKeyItem item={resourceGroups[0]}/>
-              <MapKeyItem item={resourceGroups[1]}/>
-              <MapKeyItem item={resourceGroups[2]}/>
-            </View>
-            <View style = {{flex:1, flexDirection: "row"}}>
-              <MapKeyItem item={resourceGroups[3]}/>
-              <MapKeyItem item={resourceGroups[4]}/>
-              <MapKeyItem item={resourceGroups[5]}/>
-            </View>
         </View>
       </View>
     </View>
