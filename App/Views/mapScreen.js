@@ -2,54 +2,59 @@ import * as React from 'react';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
-import { getHealthLocations } from '../Controllers/mapScreenController';
+import { getAllLocations } from '../Controllers/mapScreenController';
+import { getResourceIcon } from '../Controllers/commonController.js';
 import {getMapScreenStyles} from "./styles.js"
+import {getResourceGroups}  from "../Controllers/homeScreenController.js"
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 const styles = getMapScreenStyles()
 
-function Item({ item }) {
+function MapKeyItem({ item }) {
     return (
-      <View style={styles.listItem}>
-        <item.photo width={60} height={60} borderRadius={30} />
-        <View style={{alignItems:"center",flex:1}}>
-          <Text style={{fontWeight:"bold", textAlign:"center"}}>{item.name}</Text>
-          <Text style={{textAlign:"center"}}>{item.locationType}</Text>
+      <View style={{flex:1, justifyContent: "center"}}>
+        <View style={{alignItems:"center", marginHorizontal: 5, justifyContent: "center", borderColor: "grey", borderWidth: ".5",
+          backgroundColor:item.color, 
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: .3,
+          shadowRadius: 5,  
+          elevation: 5,
+          borderRadius:30}}>
+            <Text>{item.label}</Text>
         </View>
-        <TouchableOpacity style={{height:50,width:70, justifyContent:"center",alignItems:"center"}}>
-          <Text style={{color:"green"}}>Directions</Text>
-        </TouchableOpacity>
       </View>
     );
   }
 
 export default function MapScreen() {
-  const healthLocations = getHealthLocations()
+  const allLocations = getAllLocations()
+  const resourceGroups = getResourceGroups()
   return (
     <View style={styles.container}>
+      <View style = {{flex:1, flexDirection: "column", borderColor: "black", borderWidth: "2"}}>
+        <View style= {{flex:1}}>
         <MapView 
-        style={styles.map}
-        initialRegion={{
-          latitude: 41.3083,
-          longitude: -72.9279,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-        >
-        {healthLocations.map((location, index) => (
-      <Marker
-          key={index}
-          coordinate={location.location}
-          title={location.name}
-          description={"Default Text"}
-        />
-        ))}
-      </MapView>
-      <FlatList
-          style={{flex:1,marginBottom: 15}}
-          data={healthLocations}
-          renderItem={({ item }) => <Item item={item}/>}
-          keyExtractor={item => item.email}
-        />
+          style = {{flex:1}}
+          initialRegion={{
+            latitude: 41.3083,
+            longitude: -72.9279,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+          >
+          {allLocations.map((location, index) => (
+        <Marker
+            key={index}
+            coordinate={location.location}
+            title={location.name}
+            pinColor={location.color}
+            description={"Default Text"}
+          />
+          ))}
+          </MapView>
+        </View>
+      </View>
     </View>
   );
 }

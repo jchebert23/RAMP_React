@@ -10,27 +10,27 @@ export function getHomeScreenStyles(numColumns){
 
     return StyleSheet.create({
         container: {
-        flex: 1,
-        backgroundColor: '#F7F7F7',
-        marginTop:0,
-        flexDirection:"column"
+          flex: 1,
+          backgroundColor: '#F7F7F7',
+          marginTop:0,
+          flexDirection:"column"
         },
 
         listItem:{
-        margin:margin,
-        backgroundColor:"#FFF",
-        flexDirection:"column",
-        width:tileWidth,
-        height:tileWidth,
-        borderRadius: tileWidth/2,
-        alignItems: 'center',
-        justifyContent: 'center',
-        //shadow
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: .3,
-        shadowRadius: 5,  
-        elevation: 5
+          margin:margin,
+          backgroundColor:"#FFF",
+          flexDirection:"column",
+          width:tileWidth,
+          height:tileWidth,
+          borderRadius: tileWidth/2,
+          alignItems: 'center',
+          justifyContent: 'center',
+          //shadow
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: .3,
+          shadowRadius: 5,  
+          elevation: 5
         }
     });
 }
@@ -38,24 +38,19 @@ export function getHomeScreenStyles(numColumns){
 export function getMapScreenStyles(){
     return StyleSheet.create({
         container: {
-          flex: 1,
           backgroundColor: '#F7F7F7',
-          flexDirection: 'column'
+          flexDirection: 'row',
+          paddingVertical: 20,
+          paddingHorizontal: 10,
+          flex: 2
         },
         map: {
-          flex:1,
-          marginRight: 10,
-          marginLeft: 10
+          flex:4,
         },
         listItem:{
-          margin:10,
-          padding:10,
-          backgroundColor:"#FFF",
-          width:"80%",
           flex:1,
           alignSelf:"center",
-          flexDirection:"row",
-          borderRadius:5
+          flexDirection: "row"
         }
       });
 }
