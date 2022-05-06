@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { getResourceGuideHeadings } from '../Controllers/guideController.js';
-import MapScreen from './mapScreen.js';
+import Map from './mapComponent.js';
 import {getHomeGuideScreenStyles} from "./styles/homeGuideScreenStyles.js"
 
 const styles = getHomeGuideScreenStyles()
@@ -35,7 +35,7 @@ export default function HomeGuideScreen({route, navigation}) {
     return (
         <View style = {{flex:1}}>
             <View style = {{flex:2}}>
-                <MapScreen markers={"food"}/> 
+                <Map markers={"food"}/> 
             </View>
             <View style = {{flex:3}}>
                 <ListView cells={cells} groupId={groupId} navigation={navigation}/>

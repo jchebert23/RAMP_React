@@ -7,7 +7,7 @@ import { getMapComponentStyles } from "./styles/mapComponentStyles.js"
 
 const styles = getMapComponentStyles()
 
-export default function MapScreen({ markers }) {
+export default function Map({ markers }) {
   const locations = getLocations(markers)
   return (
     <View style={styles.container}>

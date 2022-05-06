@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, FlatList, TouchableOpacity, Text, SafeAreaView} from 'react-native';
+import { View, TouchableOpacity, Text, SafeAreaView} from 'react-native';
 import {getResourceGroups}  from "../Controllers/homeScreenController.js"
 import { getHomeScreenStyles } from "./styles/homeScreenStyles"
 import { getResourceIcon } from '../Controllers/commonController.js';
-import MapScreen from './mapScreen.js';
+import Map from './mapComponent.js';
 
 const numColumns = 3
 const styles = getHomeScreenStyles(numColumns)
@@ -34,7 +34,7 @@ export default function HomeScreen({navigation}) {
     return (
         <View style={styles.container}>
           <View style={{flex:1, marginTop:20}}>
-            <MapScreen markers={"all"}/>
+            <Map markers={"all"}/>
           </View>
           <SafeAreaView style = {{justifyContent: "center"}}>
             <View style = {{flexDirection: "row"}}>
