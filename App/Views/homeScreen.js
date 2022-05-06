@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, TouchableOpacity, Text, SafeAreaView} from 'react-native';
 import {getResourceGroups}  from "../Controllers/homeScreenController.js"
-import {getHomeScreenStyles} from "./styles.js"
+import { getHomeScreenStyles } from "./styles/homeScreenStyles"
 import { getResourceIcon } from '../Controllers/commonController.js';
 import MapScreen from './mapScreen.js';
 

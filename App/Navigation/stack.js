@@ -5,7 +5,7 @@ import React from 'react';
 import { Text, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { getNavigationStyles } from "../Views/styles";
+import { getNavigationStyles } from "../Views/styles/navigationStyles";
 import { getResourceIcon } from "../Controllers/commonController";
 import { HeaderBackButton } from "@react-navigation/elements";
 import {useFonts} from 'expo-font';

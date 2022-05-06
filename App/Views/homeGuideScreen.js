@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { getResourceGuideHeadings } from '../Controllers/guideController.js';
 import MapScreen from './mapScreen.js';
-import {getHomeGuideScreenStyles} from "./styles.js"
+import {getHomeGuideScreenStyles} from "./styles/homeGuideScreenStyles.js"
 
 const styles = getHomeGuideScreenStyles()
 

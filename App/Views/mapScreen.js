@@ -1,12 +1,11 @@
 import * as React from 'react';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import { getLocations } from '../Controllers/mapScreenController';
-import { getResourceIcon } from '../Controllers/commonController.js';
-import {getMapScreenStyles} from "./styles.js"
+import { getMapComponentStyles } from "./styles/mapComponentStyles.js"
 
-const styles = getMapScreenStyles()
+const styles = getMapComponentStyles()
 
 export default function MapScreen({ markers }) {
   const locations = getLocations(markers)
