@@ -13,8 +13,12 @@ export function getHomeScreenStyles(numColumns){
           marginTop:0,
           flexDirection:"column"
         },
-
-        listItem:{
+        mapContainer: {
+          backgroundColor: '#F7F7F7',
+          flex: 1,
+          marginTop:20
+        },
+        icon:{
           margin:margin,
           backgroundColor:"#FFF",
           flexDirection:"column",
@@ -29,6 +33,17 @@ export function getHomeScreenStyles(numColumns){
           shadowOpacity: .3,
           shadowRadius: 5,  
           elevation: 5
-        }
+        },
+        iconLabel:{marginHorizontal: 5, 
+          alignItems: "center", 
+          borderColor: "grey", 
+          borderWidth: .5,
+          textAlign:"center",
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: .3,
+          shadowRadius: 5,  
+          elevation: 5,
+          borderRadius:30}
     });
 }
