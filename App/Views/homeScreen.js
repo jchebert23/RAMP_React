@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, FlatList, TouchableOpacity, Text, SafeAreaView} from 'react-native';
+import { View, TouchableOpacity, Text, SafeAreaView} from 'react-native';
 import {getResourceGroups}  from "../Controllers/homeScreenController.js"
-import {getHomeScreenStyles} from "./styles.js"
+import { getHomeScreenStyles } from "./styles/homeScreenStyles"
 import { getResourceIcon } from '../Controllers/commonController.js';
-import MapScreen from './mapScreen.js';
+import Map from './mapComponent.js';
 
 const numColumns = 3
 const styles = getHomeScreenStyles(numColumns)
@@ -12,16 +12,10 @@ function Item({ item, navigation}) {
     const ResourceIcon = getResourceIcon(item.id)
     return (
       <View style={{flex:1}}>
-        <TouchableOpacity disabled={item.disabled} style={styles.listItem} onPress={()=> navigation.push('Guide',{id: item.id, groupId: item.groupId})} >
+        <TouchableOpacity disabled={item.disabled} style={styles.icon} onPress={()=> navigation.push('HomeGuide',{id: item.id, groupId: item.groupId})} >
           <ResourceIcon width="78%" height="78%"/>
         </TouchableOpacity>
-        <View style={{marginHorizontal: 5, alignItems: "center", borderColor: "grey", borderWidth: ".5",
-        backgroundColor:item.color, shadowColor: '#000',
-          shadowOffset: { width: 0, height: 1 },
-          shadowOpacity: .3,
-          shadowRadius: 5,  
-          elevation: 5,
-          borderRadius:30}}>
+        <View style ={[styles.iconLabel,{backgroundColor: item.color}]}>
           <Text>{item.label}</Text> 
         </View>
       </View>
@@ -33,10 +27,10 @@ export default function HomeScreen({navigation}) {
     //IMPORTANT: SAFEAREAVIEW only works in ios
     return (
         <View style={styles.container}>
-          <View style={{flex:1, marginTop:20}}>
-            <MapScreen/>
+          <View style={styles.mapContainer}>
+            <Map markers={"all"}/>
           </View>
-          <SafeAreaView style={{justifyContent: "center"}}>
+          <SafeAreaView style = {{justifyContent: "center"}}>
             <View style = {{flexDirection: "row"}}>
               <Item item={resourceGroups[0]} navigation={navigation}/>
               <Item item={resourceGroups[1]} navigation={navigation}/>

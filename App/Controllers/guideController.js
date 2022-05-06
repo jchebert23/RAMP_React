@@ -1,4 +1,4 @@
-import { fetchResourceGuide} from "../Models/guideModel";
+import { fetchResourceGuide, fetchResourceGuideHeadings} from "../Models/guideModel";
 
 export function getResourceGuide(guideID){
 
@@ -32,6 +32,18 @@ export function getResourceGuide(guideID){
         })
     )
     return cells
+}
+
+export function getResourceGuideHeadings(guideId){
+    const resourceGuideHeadings = fetchResourceGuideHeadings(guideId)
+    var cells = []
+    resourceGuideHeadings.forEach((heading) =>
+        cells.push({
+            text: heading.label,
+            children: heading.children
+        })
+    )
+    return resourceGuideHeadings
 }
 
 function idToGuideLevel(id){
