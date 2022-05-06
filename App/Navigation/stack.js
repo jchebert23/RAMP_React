@@ -1,6 +1,6 @@
 import HomeScreen  from "../Views/homeScreen"
 import MapScreen from "../Views/mapScreen"
-import GuideScreen from "../Views/guideScreen";
+import HomeGuideScreen from "../Views/homeGuideScreen";
 import React from 'react';
 import { Text, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -36,7 +36,7 @@ function NavigationTool() {
         }>
         <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Resource Access Mapping Project'}} />
         <Stack.Screen name="Map" component={MapScreen} options={{title: 'Health Resources'}} />
-        <Stack.Screen name="Guide" component={GuideScreen}/>
+        <Stack.Screen name="HomeGuide" component={HomeGuideScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

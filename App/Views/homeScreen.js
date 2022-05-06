@@ -12,7 +12,7 @@ function Item({ item, navigation}) {
     const ResourceIcon = getResourceIcon(item.id)
     return (
       <View style={{flex:1}}>
-        <TouchableOpacity disabled={item.disabled} style={styles.listItem} onPress={()=> navigation.push('Guide',{id: item.id, groupId: item.groupId})} >
+        <TouchableOpacity disabled={item.disabled} style={styles.listItem} onPress={()=> navigation.push('HomeGuide',{id: item.id, groupId: item.groupId})} >
           <ResourceIcon width="78%" height="78%"/>
         </TouchableOpacity>
         <View style={{marginHorizontal: 5, alignItems: "center", borderColor: "grey", borderWidth: ".5",
@@ -34,9 +34,9 @@ export default function HomeScreen({navigation}) {
     return (
         <View style={styles.container}>
           <View style={{flex:1, marginTop:20}}>
-            <MapScreen/>
+            <MapScreen markers={"all"}/>
           </View>
-          <SafeAreaView style={{justifyContent: "center"}}>
+          <SafeAreaView style = {{justifyContent: "center"}}>
             <View style = {{flexDirection: "row"}}>
               <Item item={resourceGroups[0]} navigation={navigation}/>
               <Item item={resourceGroups[1]} navigation={navigation}/>
