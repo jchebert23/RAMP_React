@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
+import { getGuideContentScreenStyles } from './styles/guideContentScreenStyles';
+import { getResourceGuideSubHeadings } from '../Controllers/guideController'; 
 
 // import all the components we are going to use
-import {
-  SafeAreaView,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import {SafeAreaView, FlatList, Text, View,TouchableOpacity} from 'react-native';
 
 //import for the collapsible/Expandable view
 import Collapsible from 'react-native-collapsible';
+
+const styles = getGuideContentScreenStyles()
 
 function Item({item, index, subHeadGroup}){
   const [collapsed, setCollapsed] = useState(true);
@@ -42,10 +39,9 @@ function Item({item, index, subHeadGroup}){
   );
 }
 
-
-const GuideContentScreen = ({route, navigation}) => { 
+export default function GuideContentScreen({route, navigation}){ 
   const subHeadGroup = route.params.subHeadingTitle
-  const cells = [{content: "hello"}, {content: "hello2"}, {content: "hello3"}, {content: "hello4"}]
+  const cells = getResourceGuideSubHeadings()
   return (
   <SafeAreaView style={{ flex: 1 }}>
     <View style={styles.container}>
@@ -58,35 +54,3 @@ const GuideContentScreen = ({route, navigation}) => {
     </View>
   </SafeAreaView>);
 };
-
-export default GuideContentScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F8F8F8',
-  },
-  header: {
-    margin:10,
-    padding:10,
-    backgroundColor:"#FFF",
-    width:"85%",
-    alignSelf:"center",
-    borderRadius:5,
-    borderWidth:2,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  headerText: {
-    flex:1,
-    fontFamily: "Outfit",
-    width: "90%",
-    margin: 10,
-    textAlign: "center",
-    fontSize: 20
-  },
-  content: {
-    padding: 20,
-    backgroundColor: '#F8F8F8',
-  },
-});
