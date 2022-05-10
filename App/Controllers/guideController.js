@@ -46,6 +46,10 @@ export function getResourceGuideHeadings(guideId){
     return resourceGuideHeadings
 }
 
+export function getResourceGuideSubHeadings(){
+    return [{content: "hello"}, {content: "hello2"}, {content: "hello3"}, {content: "hello4"}]
+}
+
 function idToGuideLevel(id){
     return id.split('.').length - 1
 }

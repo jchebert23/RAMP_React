@@ -9,7 +9,7 @@ const styles = getHomeGuideScreenStyles()
 function Item({ item, navigation, groupId=null}) {
     const label = item.label
     return (
-      <TouchableOpacity style = {styles.headingContainer} onPress={()=> navigation.push('SubGuide',{groupId:groupId , id: item.id})}>
+      <TouchableOpacity style = {styles.headingContainer} onPress={()=> navigation.push('GuideContent',{groupId:groupId, subHeadingTitle: item.label})}>
         <Text style = {styles.headingLabel}>{label}</Text>
       </TouchableOpacity>
     );
@@ -34,7 +34,7 @@ export default function HomeGuideScreen({route, navigation}) {
     const cells = getResourceGuideHeadings(resourceID)
     return (
         <View style = {{flex:1}}>
-            <View style = {{flex:2}}>
+            <View style = {{flex:2, backgroundColor: '#F8F8F8'}}>
                 <Map markers={"food"}/> 
             </View>
             <View style = {{flex:3}}>
